@@ -24,5 +24,4 @@ jobs:
           ecr_registry: ${{ ecr_registry }}
         run:
           docker push $ecr_registry/$ecr_repo::$imagetag
-
      
