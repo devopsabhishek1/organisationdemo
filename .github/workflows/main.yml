@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: deepakbedase123/devops_machininfo_githubactions_ecr
+    - uses: deepakbedase123/devops_machininfo_githubactions_ecr@v1
     - name: Build, tag, and push image to Amazon ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
