@@ -3,7 +3,7 @@ name: Check
 
 jobs:
   Check:
-    name: build image
+    name: xyz
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
