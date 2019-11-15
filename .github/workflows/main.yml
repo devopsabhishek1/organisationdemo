@@ -1,0 +1,21 @@
+name: Push to ECR
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: aws-actions/amazon-ecr-push@v1
+    - name: Build, tag, and push image to Amazon ECR
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        ECR_REPOSITORY:  devops_machineinfo_prod_deepak
+        IMAGE_TAG: ${{ github.sha }}
+      run: echo Hello, world!
+    - name: Run a multi-line script
+      run: |
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
