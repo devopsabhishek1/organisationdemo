@@ -1,25 +1,34 @@
-on: [push]
-name: Check
-
+on:
+  push:
+    branches: 
+      - master
+name: Push to ECR
 jobs:
-  Check:
-    name: xyz
+  PushToECR:
+    name: pushtoECR
     runs-on: ubuntu-latest
     steps:
-      - name: Build image
-        uses: deepakbedase123/devops_machininfo_githubactions_ecr@master
-        id: DockerBuild
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Congigure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+         access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+         secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+         region: us-east-1
+      - name: login ECR
+        id: login-ECR
+        uses: aws-actions/configure-aws-credentials@v1
+      
+      - name: Build,tag,Push,Image
+        id: build-iamge
         env:
-          imagetag: ${{ github.sha }}
-          ecr_repo: devops_machineinfo_prod_deepak
-          
-            
-      - name: Push to ECR
-        id: PushToECR
-        env:
-          imagetag: ${{ github.sha }}
-          ecr_repo: devops_machineinfo_prod_deepak
-        
-        run:
-          docker push 543816070942.dkr.ecr.us-east-1.amazonaws.com/$ecr_repo::$imagetag
+          ECR_Registry: ${{ steps.login-ecr.output.registry }}
+          ECR_Repository: devops_machineinfo_prod_deepak
+          Image_Tag: ${{ github.sha }}
+        run: |
+          docker build -t $ECR_Registry/$ECR_Repository:$Image_Tag
+          docker push $ECR_Registry/$ECR_Repository:$Image_Tag
+                        
+
      
