@@ -1,15 +1,31 @@
-name: Push to ECR
 on: [push]
+name: Check
+env:
+  x: value
+
 
 jobs:
-  build:
-      runs-on: ubuntu-latest
-      steps:
-      - name: Push to ECR
-        id: ecr
+  Check:
+    name: build image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
         uses: deepakbedase123/devops_machininfo_githubactions_ecr@master
-        with:
-         access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-         secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-         region: us-east-1
-         image: devops_machineinfo_prod_deepak:${{ github.sha }}
+      - name: Build image
+        id: DockerBuild
+        env:
+          imagetag: ${{ github.sha }}
+          ecr_repo: devops_machineinfo_prod_deepak
+          ecr_registry: ${{ ecr_registry }}
+        run: 
+          docker build -t $ecr_registry/$ecr_repo::$imagetag .        
+      - name: Push to ECR
+        id: PushToECR
+        env:
+          imagetag: ${{ github.sha }}
+          ecr_repo: devops_machineinfo_prod_deepak
+          ecr_registry: ${{ ecr_registry }}
+        run:
+          docker push $ecr_registry/$ecr_repo::$imagetag
+
+     
