@@ -23,7 +23,7 @@ jobs:
       - name: Build,tag,Push,Image
         id: build-iamge
         env:
-          ECR_Registry: ${{ steps.login-ecr.output.registry }}
+          ECR_Registry: ${{  secrets.ecr_registry }}
           ECR_Repository: devops_machineinfo_prod_deepak
           Image_Tag: ${{ github.sha }}
         run: |
