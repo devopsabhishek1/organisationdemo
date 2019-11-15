@@ -7,13 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build image
+        uses: deepakbedase123/devops_machininfo_githubactions_ecr 
         id: DockerBuild
         env:
           imagetag: ${{ github.sha }}
           ecr_repo: devops_machineinfo_prod_deepak
           
-        run: 
-          docker build  .        
+            
       - name: Push to ECR
         id: PushToECR
         env:
