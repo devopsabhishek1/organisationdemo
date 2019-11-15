@@ -26,9 +26,10 @@ jobs:
           ECR_Registry: ${{  secrets.ecr_registry }}
           ECR_Repository: devops_machineinfo_prod_deepak
           Image_Tag: ${{ github.sha }}
+          short: ${Image_Tag:0:5}
         run: |
-          docker build -t $ECR_Registry/$ECR_Repository:$Image_Tag .
-          docker push $ECR_Registry/$ECR_Repository:$Image_Tag
+          docker build -t $ECR_Registry/$ECR_Repository:$short .
+          docker push $ECR_Registry/$ECR_Repository:$short
                         
 
      
