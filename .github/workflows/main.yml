@@ -1,0 +1,16 @@
+name: Build
+on: [push]
+
+jobs:
+  build:
+      runs-on: ubuntu-latest
+      steps:
+      - run: docker build --tag devops_machineinfo_prod_deepak:${{ github.sha }} .
+      - name: Push to ECR
+        id: ecr
+        uses: deepakbedase123/devops_machininfo_githubactions_ecr@master
+        with:
+         access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+         secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+         region: us-east-1
+         image: devops_machineinfo_prod_deepak:${{ github.sha }}
