@@ -13,15 +13,15 @@ jobs:
         env:
           imagetag: ${{ github.sha }}
           ecr_repo: devops_machineinfo_prod_deepak
-          ecr_registry: ${{ ecr_registry }}
+          
         run: 
-          docker build -t $ecr_registry/$ecr_repo::$imagetag .        
+          docker build -t 543816070942.dkr.ecr.us-east-1.amazonaws.com/$ecr_repo::$imagetag .        
       - name: Push to ECR
         id: PushToECR
         env:
           imagetag: ${{ github.sha }}
           ecr_repo: devops_machineinfo_prod_deepak
-          ecr_registry: ${{ ecr_registry }}
+        
         run:
-          docker push $ecr_registry/$ecr_repo::$imagetag
+          docker push 543816070942.dkr.ecr.us-east-1.amazonaws.com/$ecr_repo::$imagetag
      
