@@ -5,7 +5,6 @@ jobs:
   build:
       runs-on: ubuntu-latest
       steps:
-      - run: docker build --tag devops_machineinfo_prod_deepak:${{ github.sha }} .
       - name: Push to ECR
         id: ecr
         uses: deepakbedase123/devops_machininfo_githubactions_ecr@master
