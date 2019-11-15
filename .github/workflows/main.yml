@@ -6,8 +6,6 @@ jobs:
     name: xyz
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: deepakbedase123/devops_machininfo_githubactions_ecr@master
       - name: Build image
         id: DockerBuild
         env:
