@@ -13,7 +13,7 @@ jobs:
           ecr_repo: devops_machineinfo_prod_deepak
           
         run: 
-          docker build -t 543816070942.dkr.ecr.us-east-1.amazonaws.com/$ecr_repo::$imagetag .        
+          docker build -t .        
       - name: Push to ECR
         id: PushToECR
         env:
