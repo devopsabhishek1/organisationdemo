@@ -18,7 +18,7 @@ jobs:
          aws-region: us-east-1
       - name: login ECR
         id: login-ECR
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/amazon-ecr-login@v1
       
       - name: Build,tag,Push,Image
         id: build-iamge
