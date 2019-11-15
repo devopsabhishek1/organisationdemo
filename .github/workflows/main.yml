@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build image
-        uses: deepakbedase123/devops_machininfo_githubactions_ecr 
+        uses: deepakbedase123/devops_machininfo_githubactions_ecr@master
         id: DockerBuild
         env:
           imagetag: ${{ github.sha }}
