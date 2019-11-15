@@ -28,8 +28,8 @@ jobs:
           Image_Tag: ${{ github.sha }}
           
         run: |
-          docker build -t $ECR_Registry/$ECR_Repository:$Image_Tag .
-          docker push $ECR_Registry/$ECR_Repository:$Image_Tag
+          docker build -t $ECR_Registry/$ECR_Repository:${Image_Tag::3} .
+          docker push $ECR_Registry/$ECR_Repository:${Image_Tag::3}
                         
 
      
