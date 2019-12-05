@@ -24,7 +24,8 @@ jobs:
         id: build-iamge
         env:
           ECR_Registry: ${{  secrets.ecr_registry }}
-          ECR_Repository: devops_machineinfo_prod_deepak
+          ECR_Repository: devopsmachineinfodeepak
+
           Image_Tag: ${{ github.sha }}
           
         run: |
