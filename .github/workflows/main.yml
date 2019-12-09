@@ -23,14 +23,14 @@ jobs:
       - name: Build,tag,Push,Image
         id: build-iamge
         env:
-          ECR_Registry: ${{  secrets.ecr_registry }}
+          ECR_Registry: ${{  secrets.ECR_Secretes }}
           ECR_Repository: devops-machineinfo-actions-prod-deepak
 
           Image_Tag: ${{ github.sha }}
           
         run: |
-          docker build -t $ECR_Registry/$ECR_Repository:v1 .
-          docker push $ECR_Registry/$ECR_Repository:v1
+          docker build -t 543816070942.dkr.ecr.us-east-1.amazonaws.com/devops-machineinfo-actions-prod-deepak:v1 .
+          docker push 543816070942.dkr.ecr.us-east-1.amazonaws.com/devops-machineinfo-actions-prod-deepak:v1
                         
 
      
