@@ -25,7 +25,7 @@ jobs:
       - name: Build,tag,Push,Image
         id: build-image
         env:
-          ECR_Registry: ${{  secrets. }}
+          ECR_Registry: ${{  secrets.ecr_registry }}
           ECR_Repository: devops-machineinfo-actions-prod-deepak
 
           Image_Tag: ${{ github.sha }}
