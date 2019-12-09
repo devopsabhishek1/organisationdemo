@@ -30,7 +30,7 @@
             "logConfiguration": null,
             "ulimits": null,
             "dockerLabels": null,
-            "dependsOn": null,
+            "dependsOn": null
             
         }
     ],
