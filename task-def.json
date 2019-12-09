@@ -5,7 +5,7 @@
     "inferenceAccelerators": [],
     "containerDefinitions": [
         {
-            "name": "machineinfo-actions-demo",
+            "name": "machineinfo-demo",
             "image": "543816070942.dkr.ecr.us-east-1.amazonaws.com/devops-machineinfo-actions-prod-deepak:v1",
             "memory": "512",
             "memoryReservation": "300",
