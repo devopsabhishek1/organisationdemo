@@ -29,8 +29,8 @@ jobs:
           Image_Tag: ${{ github.sha }}
           
         run: |
-          docker build -t 543816070942.dkr.ecr.us-east-1.amazonaws.com/devops-machineinfo-actions-prod-deepak:v1 .
-          docker push 543816070942.dkr.ecr.us-east-1.amazonaws.com/devops-machineinfo-actions-prod-deepak:v1
+          docker build -t $ECR_Registry/devops-machineinfo-actions-prod-deepak:v1 .
+          docker push $ECR_Registry/devops-machineinfo-actions-prod-deepak:v1
                         
 
      
