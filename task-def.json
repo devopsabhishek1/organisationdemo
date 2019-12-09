@@ -31,9 +31,7 @@
             "ulimits": null,
             "dockerLabels": null,
             "dependsOn": null,
-            "repositoryCredentials": {
-                "credentialsParameter": ""
-            }
+            
         }
     ],
     "volumes": [],
