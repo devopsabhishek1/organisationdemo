@@ -29,8 +29,8 @@ jobs:
           Image_Tag: ${{ github.sha }}
           
         run: |
-          docker build -t $ECR_Registry/devops-machineinfo-actions-prod-deepak:v2 .
-          docker push $ECR_Registry/devops-machineinfo-actions-prod-deepak:v2
+          docker build -t $ECR_Registry/devops-machineinfo-actions-prod-deepak:$Image_Tag .
+          docker push $ECR_Registry/devops-machineinfo-actions-prod-deepak:$Image_Tag
                         
 
      
