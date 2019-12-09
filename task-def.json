@@ -40,6 +40,6 @@
     "cpu": "1024",
     "placementConstraints": [],
     "family": "machineinfo-actions-demo",
-    "taskRoleArn": "",
-    "tags": []
+    "taskRoleArn": ""
+    
 }
