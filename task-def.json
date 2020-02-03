@@ -36,7 +36,7 @@
     "volumes": [],
     "networkMode": null,
     "placementConstraints": [],
-    "family": "ecs_task_1",
+    "family": "ecs_task_1"
     
     
 }
