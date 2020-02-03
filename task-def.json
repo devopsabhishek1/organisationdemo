@@ -37,6 +37,6 @@
     "networkMode": null,
     "placementConstraints": [],
     "family": "ecs_task_1",
-    "taskRoleArn": ""
+    "taskRoleArn": "arn:aws:ecs:us-east-1:543816070942:task-definition/ecs_task_1:1"
     
 }
