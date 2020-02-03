@@ -6,7 +6,7 @@
     "containerDefinitions": [
         {
             "name": "devops_ecs_container",
-            "image": "543816070942.dkr.ecr.us-east-1.amazonaws.com/devops_machineinfo_prod_deepak:latest",
+            "image": "543816070942.dkr.ecr.us-east-1.amazonaws.com/devops_machineinfo_prod_deepak:5879ba4c4f5ad711c1068bdaf1f8af6f82329450",
             "memory": 300,
             "cpu": 100,
             "resourceRequirements": null,
