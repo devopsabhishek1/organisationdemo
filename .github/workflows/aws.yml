@@ -37,7 +37,7 @@ jobs:
         # be deployed to ECS.
         docker build -t $ECR_Registry/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_Registry/$ECR_REPOSITORY:$IMAGE_TAG
-        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+        echo "::set-output name=image::$ECR_Registry/$ECR_REPOSITORY:$IMAGE_TAG"
 
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
@@ -52,5 +52,5 @@ jobs:
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
         service: ecs_service
-        cluster: ecs-cluster-deepak
+        cluster: deepak-cluster
         wait-for-service-stability: true
