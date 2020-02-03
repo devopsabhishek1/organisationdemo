@@ -7,8 +7,8 @@
         {
             "name": "devops_ecs_container",
             "image": "543816070942.dkr.ecr.us-east-1.amazonaws.com/devops_machineinfo_prod_deepak:latest",
-            "memory": "0300 ",
-            "cpu": "100",
+            "memory": 300,
+            "cpu": 100,
             "resourceRequirements": null,
             "essential": true,
             "portMappings": [
