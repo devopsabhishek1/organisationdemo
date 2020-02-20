@@ -7,6 +7,13 @@ pipeline{
 					sh "docker login --username banik123 --password Kp@43#qc && docker push banik123/argocd-demo:${env.GIT_COMMIT}"
 				}
 			}
+			
+			stage('deploy e2e'){
+				steps{
+					sh"git clone https://$GIT_CREDS_USR:$GIT_CREDS_PSW@github.com/abhishekmha/gitopsdemo.git"
+					sh "git config --global user.email 'abhishekmhaskar55@gmail.com'"
+				}
+			}
 		}
 	}
 
