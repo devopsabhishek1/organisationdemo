@@ -10,7 +10,7 @@ pipeline{
 			
 			stage('deploy e2e'){
 				steps{
-					sh"git clone https://abhishekmha:abhishek55@@github.com/abhishekmha/gitopsdemo.git"
+					sh"git clone https://$GIT_CREDS_USR:$GIT_CREDS_PSW@github.com/abhishekmha/gitopsdemo.git"
 					sh "git config --global user.email 'abhishekmhaskar55@gmail.com'"
 				}
 			}
