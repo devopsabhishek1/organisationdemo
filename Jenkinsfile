@@ -10,8 +10,8 @@ pipeline{
 			
 			stage('deploy e2e'){
 				steps{
-					sh"git clone https://github.com/abhishekmha/gitopsdemo.git"
-					sh "git config --global user.email 'abhishekmhaskar55@gmail.com'"
+					//sh"git clone https://github.com/abhishekmha/gitopsdemo.git"
+					//sh "git config --global user.email 'abhishekmhaskar55@gmail.com'"
 					
 					dir("gitopsdemo"){
 						sh "cd ./e2e && kustomize edit set image banik123/argocd-demo:${env.GIT_COMMIT}"
